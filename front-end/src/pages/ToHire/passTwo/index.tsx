@@ -82,9 +82,21 @@ export default function PassTwo(valueSubTotal: ValueSubTotal) {
         const newListDiscoutName = [...listDiscountName];
         const newListDiscountValue: number[] = [...listDiscountValue];
 
-        setListDicountName([...newListDiscoutName, newDiscountName]);
+        if (valueTotal <= 0) {
+            toast.error('Escolha um período.');
+            setDiscountName('');
+            return;
+        }
 
         for (let i = 0; i < discountValueBase.length; i++) {
+            if (discountValueBase[i] >= valueTotal) {
+                toast.error('Valor do cupom é maior ou igual ao valor total.');
+                setDiscountName('');
+                return;
+            }
+
+            setListDicountName([...newListDiscoutName, newDiscountName]);
+
             setListDiscountValue([
                 ...newListDiscountValue,
                 discountValueBase[i],
@@ -199,7 +211,7 @@ export default function PassTwo(valueSubTotal: ValueSubTotal) {
                         <p>
                             <strong>SubTotal</strong>
                         </p>
-                        <p>R$ {valueSubTotal.value}</p>
+                        <p>R$ {valueSubTotal.value.toFixed(2)}</p>
                     </div>
 
                     <div className="discount">

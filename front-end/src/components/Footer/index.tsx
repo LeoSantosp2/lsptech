@@ -5,7 +5,7 @@ import { AiOutlineCopyright } from 'react-icons/ai';
 
 import { Container } from './styled';
 
-export default function Footer(): JSX.Element {
+export default function Footer() {
     return (
         <Container>
             <div className="infos-extras">

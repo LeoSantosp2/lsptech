@@ -25,7 +25,7 @@ export default function HeaderComponent() {
     return (
         <Header>
             <div className="logo">
-                <Link to={'/'}>
+                <Link to="/">
                     <img src={Logo} />
                 </Link>
             </div>
@@ -36,13 +36,13 @@ export default function HeaderComponent() {
                         Sair
                     </Link>
                 ) : (
-                    <Link to={'/login'}>Login</Link>
+                    <Link to="/login">Login</Link>
                 )}
 
                 {isLoggedIn ? (
                     <Link to="/">Painel</Link>
                 ) : (
-                    <Link to={'/cadastro'}>Cadastre-se</Link>
+                    <Link to="/cadastro">Cadastre-se</Link>
                 )}
             </div>
         </Header>
