@@ -1,7 +1,7 @@
-class HomeController{
-    index(req, res){
-        res.json('Home Page')
+class HomeController {
+    index(req, res) {
+        res.json('Home Page');
     }
 }
 
-export default new HomeController()
+export default new HomeController();

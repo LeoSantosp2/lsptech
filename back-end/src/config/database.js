@@ -1,4 +1,4 @@
-require('dotenv').config()
+require('dotenv').config();
 
 module.exports = {
     dialect: 'mariadb',
@@ -11,11 +11,11 @@ module.exports = {
         timesstamps: true,
         underscored: true,
         underscoredAll: true,
-        'createdAt': 'created_at',
-        'updatedAt': 'updated_at'
+        createdAt: 'created_at',
+        updatedAt: 'updated_at',
     },
     dialectOptions: {
-        timezone: 'America/Sao_Paulo'
+        timezone: 'America/Sao_Paulo',
     },
-    timezone: 'America/Sao_Paulo'
-}
+    timezone: 'America/Sao_Paulo',
+};

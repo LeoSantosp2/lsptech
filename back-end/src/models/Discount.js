@@ -1,19 +1,22 @@
-import Sequelize, { Model } from 'sequelize'
+import Sequelize, { Model } from 'sequelize';
 
-export default class Discount extends Model{
-    static init(sequelize){
-        super.init({
-            nome: {
-                type: Sequelize.STRING,
-                defaultValue: ''
+export default class Discount extends Model {
+    static init(sequelize) {
+        super.init(
+            {
+                nome: {
+                    type: Sequelize.STRING,
+                    defaultValue: '',
+                },
+
+                valor: {
+                    type: Sequelize.FLOAT,
+                    defaultValue: '',
+                },
             },
-
-            valor: {
-                type: Sequelize.FLOAT,
-                defaultValue: ''
-            }
-        }, {
-            sequelize
-        })
+            {
+                sequelize,
+            },
+        );
     }
 }

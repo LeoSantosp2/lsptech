@@ -1,39 +1,38 @@
-import jwt from 'jsonwebtoken'
+import jwt from 'jsonwebtoken';
 
-import Client from '../models/Client'
+import Client from '../models/Client';
 
-export default async (req, res, next) =>{
-    const {authorization} = req.headers
+export default async (req, res, next) => {
+    const { authorization } = req.headers;
 
-    if(!authorization){
+    if (!authorization) {
         return res.status(401).json({
-            errors: ['Necessário Fazer Login.']
-        })
+            errors: ['Necessário Fazer Login.'],
+        });
     }
 
-    const [text, token] = authorization.split(' ')
+    const [token] = authorization.split(' ');
 
-    try{
-        const datas = jwt.verify(token, process.env.TOKEN_SECRET)
+    try {
+        const datas = jwt.verify(token, process.env.TOKEN_SECRET);
 
-        const {id, email} = datas
+        const { id, email } = datas;
 
-        const client = await Client.findOne({where: { id, email }})
+        const client = await Client.findOne({ where: { id, email } });
 
-        if(!client){
+        if (!client) {
             return res.status(400).json({
-                errors: ['Usuário Inválido.']
-            })
+                errors: ['Usuário Inválido.'],
+            });
         }
 
-        req.clientId = id
-        req.clientEmail = email
+        req.clientId = id;
+        req.clientEmail = email;
 
-        return next()
-    }
-    catch(e){
+        return next();
+    } catch (e) {
         return res.status(401).json({
-            errors: ['Token Expirado ou Inválido.']
-        })
+            errors: ['Token Expirado ou Inválido.'],
+        });
     }
-}
+};
