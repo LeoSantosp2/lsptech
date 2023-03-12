@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { AiOutlineMail } from 'react-icons/ai';
 import { useSelector, useDispatch } from 'react-redux';
 import { toast } from 'react-toastify';
+import AnchorLink from 'react-anchor-link-smooth-scroll';
 
 import { Header } from './styled';
 
@@ -63,8 +64,8 @@ export default function HeaderHome() {
             <nav>
                 <Link to={'/hospedagens'}>Hospedagem</Link>|
                 <Link to={'/crie-seu-site'}>Crie Seu Site</Link>|
-                <a href="#about-us">Sobre Nós</a>|
-                <a href="#contact-us">Fale Conosco</a>
+                <AnchorLink href="#about-us">Sobre Nós</AnchorLink>|
+                <AnchorLink href="#contact-us">Fale Conosco</AnchorLink>
             </nav>
         </Header>
     );
